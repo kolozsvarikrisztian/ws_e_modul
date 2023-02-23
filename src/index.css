@@ -5,9 +5,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+#game {
+  display: flex;
+  width: 100vw;
+  height: 100vw;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+#game .scene {
+  width: 100vw;
+  height: 100vw;
+  flex-shrink: 0;
+}
+
+#game #player {
+  width: 80px;
+  position: absolute;
+}
+
+#game #player img{
+  width: 200%;
 }

@@ -21,6 +21,7 @@ body {
   height: 100vw;
   overflow-x: scroll;
   overflow-y: hidden;
+  position: relative;
 }
 
 #game .scene {
@@ -36,4 +37,11 @@ body {
 
 #game #player img{
   width: 200%;
+}
+
+#fullscreen-button {
+  height: 50px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }

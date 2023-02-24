@@ -19,8 +19,9 @@ body {
   display: flex;
   width: 100vw;
   height: 100vw;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   overflow-y: hidden;
+  overflow-x: scroll;
   position: relative;
 }
 
@@ -37,11 +38,17 @@ body {
 
 #game #player img{
   width: 200%;
+  image-rendering: pixelated;
 }
 
 #fullscreen-button {
-  height: 50px;
+  height: 80px;
   position: absolute;
   right: 20px;
   top: 20px;
+}
+
+.video {
+  margin: auto;
+  width: 580px;
 }

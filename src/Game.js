@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import FullscreenButton from './FullscreenButton';
 import Player from './Player';
 import Scene from './Scene';
+import Video from './Video';
 
 const Game = () => {
     const [playerLocation, setPlayerLocation] = useState({x: 100, y: 500});
@@ -24,6 +25,7 @@ const Game = () => {
 
     useEffect(() => {
         const handleKeyDown = (e) => {
+            e.preventDefault();
             switch (e.key) {
                 case "ArrowRight":
                     setPlayerLocation(prev => {
@@ -45,7 +47,18 @@ const Game = () => {
             }
         };
 
+        const handleDblClick = (e) => {
+            setPlayerLocation(prev => {
+                let offset = Math.floor(prev.x / window.innerWidth) * window.innerWidth;
+                return {
+                    y: e.y - 30,
+                    x: offset + e.x - 70
+                }
+            })
+        };
+
         window.addEventListener('keydown', handleKeyDown)
+        window.addEventListener('dblclick', handleDblClick)
         // return () => window.removeEventListener('keydown', handleKeyDown)
     }, []);
 
@@ -53,9 +66,9 @@ const Game = () => {
         <div id="game" ref={gameRef}>
             <Player location={playerLocation} />
             <FullscreenButton />
-            <Scene background="steelblue"></Scene>
-            <Scene background="lightgreen"></Scene>
-            <Scene background="teal"></Scene>
+            <Scene background="steelblue" url="https://www.youtube.com/embed/GK_lwShM590"></Scene>
+            <Scene background="lightgreen" url="https://www.youtube.com/embed/giFpWDRKCq0"></Scene>
+            <Scene background="teal" url="https://www.youtube.com/embed/GK_lwShM590"></Scene>
         </div>
     )
 };
